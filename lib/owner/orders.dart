@@ -49,7 +49,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
             ),
             body: Center(
               child: SizedBox(
-                width: 400,
+                width: MediaQuery.of(context).size.width < 800 ? MediaQuery.of(context).size.width  : 800,
                 child: TabBarView(
                   children: [
                     Expanded(
@@ -61,7 +61,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                             margin: const EdgeInsets.only(top: 10, bottom: 10),
                             color: thirdColor,
                             child: Container(
-                              padding: const EdgeInsets.all(10),
+                              padding: const EdgeInsets.only(right: 30,left: 30,top: 20,bottom: 20),
                               decoration: BoxDecoration(
                                 boxShadow: [
                                   BoxShadow(
@@ -83,8 +83,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      SizedBox(
-                                        width: 150,
+                                      Expanded(
                                         child: Container(
                                           padding: const EdgeInsets.all(8),
                                           decoration: BoxDecoration(
@@ -103,8 +102,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                       const SizedBox(
                                         width: 15,
                                       ),
-                                      SizedBox(
-                                        width: 150,
+                                      Expanded(
                                         child: Container(
                                             padding: const EdgeInsets.all(8),
                                             decoration: BoxDecoration(
@@ -127,8 +125,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceAround,
                                     children: [
-                                      SizedBox(
-                                        width: 150,
+                                      Expanded(
                                         child: Container(
                                           padding: const EdgeInsets.all(8),
                                           decoration: BoxDecoration(
@@ -156,8 +153,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                       const SizedBox(
                                         width: 10,
                                       ),
-                                      SizedBox(
-                                        width: 150,
+                                      Expanded(
                                         child: Container(
                                             padding: const EdgeInsets.all(8),
                                             decoration: BoxDecoration(
@@ -189,8 +185,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      SizedBox(
-                                        width: 150,
+                                      Expanded(
                                         child: Container(
                                           padding: const EdgeInsets.all(8),
                                           decoration: BoxDecoration(
@@ -209,8 +204,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                       const SizedBox(
                                         width: 15,
                                       ),
-                                      SizedBox(
-                                        width: 150,
+                                      Expanded(
                                         child: Container(
                                             padding: const EdgeInsets.all(8),
                                             decoration: BoxDecoration(
@@ -227,14 +221,14 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                     ],
                                   ),
                                   const SizedBox(
-                                    height: 15,
+                                    height: 25,
                                   ),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      SizedBox(
-                                        width: 150,
+                                      Expanded(
                                         child: Container(
+                                          height:35,
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(5),
@@ -264,9 +258,9 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                       const SizedBox(
                                         width: 10,
                                       ),
-                                      SizedBox(
-                                        width: 150,
+                                      Expanded(
                                         child: Container(
+                                          height:35,
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(5),
@@ -313,7 +307,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                             margin: const EdgeInsets.only(top: 10, bottom: 10),
                             color: thirdColor,
                             child: Container(
-                              padding: const EdgeInsets.all(10),
+                              padding: const EdgeInsets.only(right: 30,left: 30,top: 20,bottom: 20),
                               decoration: BoxDecoration(
                                 boxShadow: [
                                   BoxShadow(
@@ -335,8 +329,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      SizedBox(
-                                        width: 150,
+                                      Expanded(
                                         child: Container(
                                           padding: const EdgeInsets.all(8),
                                           decoration: BoxDecoration(
@@ -355,8 +348,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                       const SizedBox(
                                         width: 15,
                                       ),
-                                      SizedBox(
-                                        width: 150,
+                                      Expanded(
                                         child: Container(
                                             padding: const EdgeInsets.all(8),
                                             decoration: BoxDecoration(
@@ -379,8 +371,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceAround,
                                     children: [
-                                      SizedBox(
-                                        width: 150,
+                                      Expanded(
                                         child: Container(
                                           padding: const EdgeInsets.all(8),
                                           decoration: BoxDecoration(
@@ -408,8 +399,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                       const SizedBox(
                                         width: 10,
                                       ),
-                                      SizedBox(
-                                        width: 150,
+                                      Expanded(
                                         child: Container(
                                             padding: const EdgeInsets.all(8),
                                             decoration: BoxDecoration(
@@ -441,8 +431,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      SizedBox(
-                                        width: 150,
+                                      Expanded(
                                         child: Container(
                                           padding: const EdgeInsets.all(8),
                                           decoration: BoxDecoration(
@@ -461,8 +450,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                       const SizedBox(
                                         width: 15,
                                       ),
-                                      SizedBox(
-                                        width: 150,
+                                      Expanded(
                                         child: Container(
                                             padding: const EdgeInsets.all(8),
                                             decoration: BoxDecoration(
@@ -497,7 +485,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                             margin: const EdgeInsets.only(top: 10, bottom: 10),
                             color: thirdColor,
                             child: Container(
-                              padding: const EdgeInsets.all(10),
+                              padding: const EdgeInsets.only(right: 30,left: 30,top: 20,bottom: 20),
                               decoration: BoxDecoration(
                                 boxShadow: [
                                   BoxShadow(
@@ -519,8 +507,8 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      SizedBox(
-                                        width: 150,
+                                      Expanded(
+
                                         child: Container(
                                           padding: const EdgeInsets.all(8),
                                           decoration: BoxDecoration(
@@ -539,8 +527,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                       const SizedBox(
                                         width: 15,
                                       ),
-                                      SizedBox(
-                                        width: 150,
+                                      Expanded(
                                         child: Container(
                                             padding: const EdgeInsets.all(8),
                                             decoration: BoxDecoration(
@@ -563,8 +550,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceAround,
                                     children: [
-                                      SizedBox(
-                                        width: 150,
+                                      Expanded(
                                         child: Container(
                                           padding: const EdgeInsets.all(8),
                                           decoration: BoxDecoration(
@@ -592,8 +578,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                       const SizedBox(
                                         width: 10,
                                       ),
-                                      SizedBox(
-                                        width: 150,
+                                      Expanded(
                                         child: Container(
                                             padding: const EdgeInsets.all(8),
                                             decoration: BoxDecoration(
@@ -625,8 +610,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      SizedBox(
-                                        width: 150,
+                                      Expanded(
                                         child: Container(
                                           padding: const EdgeInsets.all(8),
                                           decoration: BoxDecoration(
@@ -645,8 +629,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                       const SizedBox(
                                         width: 15,
                                       ),
-                                      SizedBox(
-                                        width: 150,
+                                      Expanded(
                                         child: Container(
                                             padding: const EdgeInsets.all(8),
                                             decoration: BoxDecoration(
@@ -663,14 +646,14 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                     ],
                                   ),
                                   const SizedBox(
-                                    height: 15,
+                                    height: 25,
                                   ),
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      SizedBox(
-                                        width: 300,
+                                      Expanded(
                                         child: Container(
+                                          height:35,
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(5),

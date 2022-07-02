@@ -22,13 +22,15 @@ class _OwnerNotificationState extends State<OwnerNotification> {
       ),
       body: Center(
         child: SizedBox(
-          width: 350,
+            width: MediaQuery.of(context).size.width < 800
+                ? MediaQuery.of(context).size.width
+                : 800,
           // child: Text('${notification[0]['title']}')),
           child: Column(
             children: [
               Expanded(
                 child: ListView.builder(
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(40),
                   itemCount: notification.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Container(

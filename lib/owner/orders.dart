@@ -22,18 +22,19 @@ class _OwnerOrdersState extends State<OwnerOrders> {
           textDirection: TextDirection.rtl,
           child: Scaffold(
             appBar: AppBar(
-              backgroundColor: thirdColor,
-              toolbarHeight: 0,
+              backgroundColor: Colors.blue,
+
+              toolbarHeight: 11,
               bottom: const TabBar(
-                indicatorColor: Colors.blue,
-                labelColor: Colors.blue,
-                unselectedLabelColor: Colors.grey,
+                indicatorColor: Colors.white,
+                labelColor: Colors.white,
+                unselectedLabelColor: Colors.white,
                 labelStyle: TextStyle(
                     fontSize: 17.0,
-                    fontFamily: 'IranYekan',
+                   fontFamily: 'IranYekan',
                     fontWeight: FontWeight.bold),
                 unselectedLabelStyle:
-                    TextStyle(fontSize: 15.0, fontFamily: 'IranYekan'),
+                    TextStyle(fontSize: 15.0,fontFamily: 'IranYekan'),
                 tabs: [
                   Tab(
                     text: 'در انتظار',
@@ -95,7 +96,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                             '${ordersWaiting[index]['date']}',
                                             textAlign: TextAlign.center,
                                             style: const TextStyle(
-                                                fontFamily: 'IranYekan'),
+                                               fontFamily: 'IranYekan',fontSize: 16),
                                           ),
                                         ),
                                       ),
@@ -114,7 +115,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                                 '${ordersWaiting[index]['description']}',
                                                 textAlign: TextAlign.center,
                                                 style: const TextStyle(
-                                                    fontFamily: 'IranYekan'))),
+                                                   fontFamily: 'IranYekan',fontSize: 16))),
                                       ),
                                     ],
                                   ),
@@ -144,7 +145,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                               Text(
                                                 'از ${ordersWaiting[index]['from']}',
                                                 style: const TextStyle(
-                                                    fontFamily: 'IranYekan'),
+                                                   fontFamily: 'IranYekan',fontSize: 16),
                                               ),
                                             ],
                                           ),
@@ -173,7 +174,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                                     'به ${ordersWaiting[index]['to']}',
                                                     style: const TextStyle(
                                                         fontFamily:
-                                                            'IranYekan')),
+                                                            'IranYekan',fontSize: 16)),
                                               ],
                                             )),
                                       ),
@@ -197,7 +198,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                             '${ordersWaiting[index]['price']}',
                                             textAlign: TextAlign.center,
                                             style: const TextStyle(
-                                                fontFamily: 'IranYekan'),
+                                               fontFamily: 'IranYekan',fontSize: 16),
                                           ),
                                         ),
                                       ),
@@ -216,7 +217,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                                 '${ordersWaiting[index]['priceType']}',
                                                 textAlign: TextAlign.center,
                                                 style: const TextStyle(
-                                                    fontFamily: 'IranYekan'))),
+                                                   fontFamily: 'IranYekan',fontSize: 16))),
                                       ),
                                     ],
                                   ),
@@ -248,7 +249,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                               'ویرایش',
                                               style: TextStyle(
                                                 color: Colors.white,
-                                                fontFamily: 'IranYekan',
+                                               fontFamily: 'IranYekan',
                                                 fontSize: 15,
                                               ),
                                             ),
@@ -279,7 +280,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                               'لغو سفارش',
                                               style: TextStyle(
                                                 color: Colors.white,
-                                                fontFamily: 'IranYekan',
+                                               fontFamily: 'IranYekan',
                                                 fontSize: 15,
                                               ),
                                             ),
@@ -341,7 +342,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                             '${ordersWaiting[index]['date']}',
                                             textAlign: TextAlign.center,
                                             style: const TextStyle(
-                                                fontFamily: 'IranYekan'),
+                                               fontFamily: 'IranYekan',fontSize: 16),
                                           ),
                                         ),
                                       ),
@@ -360,7 +361,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                                 '${ordersWaiting[index]['description']}',
                                                 textAlign: TextAlign.center,
                                                 style: const TextStyle(
-                                                    fontFamily: 'IranYekan'))),
+                                                   fontFamily: 'IranYekan',fontSize: 16))),
                                       ),
                                     ],
                                   ),
@@ -390,7 +391,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                               Text(
                                                 'از ${ordersWaiting[index]['from']}',
                                                 style: const TextStyle(
-                                                    fontFamily: 'IranYekan'),
+                                                   fontFamily: 'IranYekan',fontSize: 16),
                                               ),
                                             ],
                                           ),
@@ -443,7 +444,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                             '${ordersWaiting[index]['price']}',
                                             textAlign: TextAlign.center,
                                             style: const TextStyle(
-                                                fontFamily: 'IranYekan'),
+                                               fontFamily: 'IranYekan',fontSize: 16),
                                           ),
                                         ),
                                       ),
@@ -462,7 +463,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                                 '${ordersWaiting[index]['priceType']}',
                                                 textAlign: TextAlign.center,
                                                 style: const TextStyle(
-                                                    fontFamily: 'IranYekan'))),
+                                                   fontFamily: 'IranYekan',fontSize: 16))),
                                       ),
                                     ],
                                   ),
@@ -520,7 +521,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                             '${ordersWaiting[index]['date']}',
                                             textAlign: TextAlign.center,
                                             style: const TextStyle(
-                                                fontFamily: 'IranYekan'),
+                                               fontFamily: 'IranYekan',fontSize: 16),
                                           ),
                                         ),
                                       ),
@@ -539,7 +540,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                                 '${ordersWaiting[index]['description']}',
                                                 textAlign: TextAlign.center,
                                                 style: const TextStyle(
-                                                    fontFamily: 'IranYekan'))),
+                                                   fontFamily: 'IranYekan',fontSize: 16))),
                                       ),
                                     ],
                                   ),
@@ -569,7 +570,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                               Text(
                                                 'از ${ordersWaiting[index]['from']}',
                                                 style: const TextStyle(
-                                                    fontFamily: 'IranYekan'),
+                                                   fontFamily: 'IranYekan',fontSize: 16),
                                               ),
                                             ],
                                           ),
@@ -622,7 +623,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                             '${ordersWaiting[index]['price']}',
                                             textAlign: TextAlign.center,
                                             style: const TextStyle(
-                                                fontFamily: 'IranYekan'),
+                                               fontFamily: 'IranYekan',fontSize: 16),
                                           ),
                                         ),
                                       ),
@@ -641,7 +642,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                                 '${ordersWaiting[index]['priceType']}',
                                                 textAlign: TextAlign.center,
                                                 style: const TextStyle(
-                                                    fontFamily: 'IranYekan'))),
+                                                   fontFamily: 'IranYekan',fontSize: 16))),
                                       ),
                                     ],
                                   ),
@@ -673,7 +674,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                               'بازگشت به چرخه',
                                               style: TextStyle(
                                                 color: Colors.white,
-                                                fontFamily: 'IranYekan',
+                                               fontFamily: 'IranYekan',
                                                 fontSize: 15,
                                               ),
                                             ),

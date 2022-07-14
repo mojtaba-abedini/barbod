@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:lottie/lottie.dart';
 import 'package:sample/owner/orders.dart';
 import 'package:sample/owner/profile.dart';
-import 'package:sample/globals.dart';
+import 'package:get/get.dart';
+import 'package:sample/owner/step_one.dart';
 
 class OwnerNewOrder extends StatefulWidget {
   const OwnerNewOrder({Key? key}) : super(key: key);
@@ -75,7 +77,7 @@ class _OwnerNewOrderState extends State<OwnerNewOrder> {
                           primary: Theme.of(context).primaryColor,
                         ),
                         onPressed: () {
-                          // Get.to(const OwnerCode());
+                           Get.to(const StepOne());
                         },
                         child: const Text(
                           'ثبت سفارش بار جدید',

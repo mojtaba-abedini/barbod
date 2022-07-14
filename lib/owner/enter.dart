@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sample/owner/verify.dart';
@@ -12,6 +13,7 @@ class OwnerEnter extends StatefulWidget {
 }
 
 class _OwnerEnterState extends State<OwnerEnter> {
+
   bool value = false;
 
   @override
@@ -51,7 +53,20 @@ class _OwnerEnterState extends State<OwnerEnter> {
                 height: 60,
                 child: MyElevatedButtonIcon(
                   text: 'ورود به سامانه',
-                  onPress: () => Get.to(const OwnerVerify()),
+                  // onPress: () => Get.to(const OwnerVerify()),
+                  onPress: () {
+                    value == true
+                        ? Get.to(const OwnerVerify())
+                        : ScaffoldMessenger.of(context)
+                            .showSnackBar(const SnackBar(
+                            content: Directionality(
+                                textDirection: TextDirection.rtl,
+                                child: Text(
+                                  'برای ادامه باید قوانین باربد را بپذیرید!',
+                                  style: TextStyle(fontFamily: 'IranYekan'),
+                                )),
+                          ));
+                  },
                   icon: const Icon(
                     Icons.exit_to_app,
                     color: secondColor,

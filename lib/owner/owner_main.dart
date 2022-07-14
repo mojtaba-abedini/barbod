@@ -43,7 +43,9 @@ class _OwnerMainState extends State<OwnerMain> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 80,
+        toolbarHeight: _currentPage!= _page3 ? 80 : 0,
+        elevation: _currentPage== _page3 ? 0:5,
+
 
         title: const Text('باربد'),
         centerTitle: true,

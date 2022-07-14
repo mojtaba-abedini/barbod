@@ -37,6 +37,8 @@ class _OwnerNotificationState extends State<OwnerNotification> {
                       margin: const EdgeInsets.only(top: 10, bottom: 10),
                       height: 50,
                       color: thirdColor,
+
+
                       child: Container(
                           padding: const EdgeInsets.all(10),
                           decoration: BoxDecoration(
@@ -51,7 +53,7 @@ class _OwnerNotificationState extends State<OwnerNotification> {
                               ],
                               borderRadius: BorderRadius.circular(5),
                               color: thirdColor,
-                              border: Border.all(color: Colors.grey)),
+                              border: Border.all(color: Colors.white70)),
                           child: Text(
                             '${notification[index]['title']}',
                             textAlign: TextAlign.right,

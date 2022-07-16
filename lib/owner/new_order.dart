@@ -77,7 +77,13 @@ class _OwnerNewOrderState extends State<OwnerNewOrder> {
                           primary: Theme.of(context).primaryColor,
                         ),
                         onPressed: () {
-                           Get.to(const StepOne());
+                           Get.to(const OwnerStepOne());
+
+                           // Navigator.push(
+                           //     context,
+                           //     MaterialPageRoute(builder: (context) => const OwnerStepOne()));
+
+
                         },
                         child: const Text(
                           'ثبت سفارش بار جدید',

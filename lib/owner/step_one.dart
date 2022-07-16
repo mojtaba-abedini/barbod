@@ -1,24 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'package:sample/globals.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sample/data.dart';
+import 'package:sample/owner/origin_location.dart';
 import 'package:sample/owner/step_two.dart';
 
-class StepOne extends StatefulWidget {
-  const StepOne({Key? key}) : super(key: key);
+class OwnerStepOne extends StatefulWidget {
+  const OwnerStepOne({Key? key}) : super(key: key);
 
   @override
-  State<StepOne> createState() => _StepOneState();
+  State<OwnerStepOne> createState() => _OwnerStepOneState();
 }
 
-class _StepOneState extends State<StepOne> {
+class _OwnerStepOneState extends State<OwnerStepOne> {
   final String assetName = 'assets/step-one.svg';
 
   String palceDropdownValue = cities[0];
   String palce2DropdownValue = cities[0];
+  final TextEditingController _origin_location = TextEditingController();
+
+  void refreshOriginLocation() {
+    _origin_location.text = ownerOriginLocation;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,10 +39,10 @@ class _StepOneState extends State<StepOne> {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 40),
             child: SizedBox(
-              width: MediaQuery.of(context).size.width < 600
-                  ? MediaQuery.of(context).size.width
-                  : 600,
-              height: 30,
+              width: MediaQuery.of(context).size.width > 600
+                  ? 500
+                  : MediaQuery.of(context).size.width,
+              height: 50,
               child: SvgPicture.asset(assetName),
             ),
           ),
@@ -81,6 +86,9 @@ class _StepOneState extends State<StepOne> {
                             child: Directionality(
                               textDirection: TextDirection.rtl,
                               child: DropdownButton<String>(
+                                icon: const Visibility(
+                                    visible: false,
+                                    child: Icon(Icons.arrow_downward)),
                                 value: palceDropdownValue,
                                 elevation: 16,
                                 iconSize: 0,
@@ -98,13 +106,82 @@ class _StepOneState extends State<StepOne> {
                                     child: Text(
                                       value,
                                       style: const TextStyle(
-                                          fontFamily: 'iranYekan',
+                                          fontFamily: 'IranYekan',
                                           fontSize: 15),
                                     ),
                                   );
                                 }).toList(),
                                 underline: Container(),
                               ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        const Align(
+                          alignment: Alignment.centerRight,
+                          child: Text(
+                            'لوکیشن بارگیری',
+                            style: TextStyle(color: Colors.black, fontSize: 17),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Center(
+                          child: SizedBox(
+                            width: MediaQuery.of(context).size.width < 600
+                                ? MediaQuery.of(context).size.width
+                                : 600,
+
+                            child: Material(
+                              elevation: 0,
+                              borderRadius: BorderRadius.circular(5),
+                              child: Stack(children: [
+                                TextField(
+                                  keyboardType: TextInputType.multiline,
+                                  maxLines: null,
+                                  controller: _origin_location,
+                                  cursorColor: Colors.grey,
+                                  textAlign: TextAlign.right,
+                                  style: const TextStyle(
+                                      fontSize: 16,
+                                      ),
+                                  decoration: InputDecoration(
+
+                                    suffixIcon: IconButton(
+                                        onPressed: () {
+                                          Navigator.of(context)
+                                              .push(
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  const OwnerOriginLocation(),
+                                            ),
+                                          )
+                                              .then((_) {
+                                            refreshOriginLocation();
+                                          });
+                                        },
+                                        icon: const Icon(Icons.search)),
+                                    contentPadding: kIsWeb
+                                        ? const EdgeInsets.only(left: 15,top: 18,bottom: 18)
+                                        : const EdgeInsets.all(13),
+                                    filled: true,
+                                    fillColor: thirdColor,
+                                    enabledBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          width: 0.9, color: Colors.grey),
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                    focusedBorder: OutlineInputBorder(
+                                      borderSide: const BorderSide(
+                                          width: 0.9, color: Colors.blue),
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                  ),
+                                ),
+                              ]),
                             ),
                           ),
                         ),
@@ -187,6 +264,9 @@ class _StepOneState extends State<StepOne> {
                             child: Directionality(
                               textDirection: TextDirection.rtl,
                               child: DropdownButton<String>(
+                                icon: const Visibility(
+                                    visible: false,
+                                    child: Icon(Icons.arrow_downward)),
                                 value: palce2DropdownValue,
                                 elevation: 16,
                                 iconSize: 0,
@@ -204,7 +284,7 @@ class _StepOneState extends State<StepOne> {
                                     child: Text(
                                       value,
                                       style: const TextStyle(
-                                          fontFamily: 'iranYekan',
+                                          fontFamily: 'IranYekan',
                                           fontSize: 15),
                                     ),
                                   );
@@ -373,7 +453,7 @@ class _StepOneState extends State<StepOne> {
                                 primary: Theme.of(context).primaryColor,
                               ),
                               onPressed: () {
-                               Get.to(const StepTwo());
+                                Get.to(const OwnerStepTwo());
                               },
                               child: const Text(
                                 'مرحله بعد',

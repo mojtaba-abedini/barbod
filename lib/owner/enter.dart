@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:sample/owner/verify.dart';
 import 'package:sample/globals.dart';
 import 'package:sample/owner/widgets/my_elevated_button_icon.dart';
+import 'package:sample/owner/map.dart';
 
 class OwnerEnter extends StatefulWidget {
   const OwnerEnter({Key? key}) : super(key: key);
@@ -57,6 +58,7 @@ class _OwnerEnterState extends State<OwnerEnter> {
                   onPress: () {
                     value == true
                         ? Get.to(const OwnerVerify())
+                        // ? Get.to(const Map())
                         : ScaffoldMessenger.of(context)
                             .showSnackBar(const SnackBar(
                             content: Directionality(

@@ -6,14 +6,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sample/data.dart';
 import 'package:sample/owner/step_three.dart';
 
-class StepTwo extends StatefulWidget {
-  const StepTwo({Key? key}) : super(key: key);
+class OwnerStepTwo extends StatefulWidget {
+  const OwnerStepTwo({Key? key}) : super(key: key);
 
   @override
-  State<StepTwo> createState() => _StepTwoState();
+  State<OwnerStepTwo> createState() => _OwnerStepTwoState();
 }
 
-class _StepTwoState extends State<StepTwo> {
+class _OwnerStepTwoState extends State<OwnerStepTwo> {
   final String assetName = 'assets/step-two.svg';
 
   String carsDropdownValue = cars[0]['name'] as String;
@@ -35,7 +35,7 @@ class _StepTwoState extends State<StepTwo> {
               width: MediaQuery.of(context).size.width < 600
                   ? MediaQuery.of(context).size.width
                   : 600,
-              height: 30,
+              height: 40,
               child: SvgPicture.asset(assetName),
             ),
           ),
@@ -223,6 +223,7 @@ class _StepTwoState extends State<StepTwo> {
                             child: Directionality(
                               textDirection: TextDirection.rtl,
                               child: DropdownButton<String>(
+                                icon: const Visibility (visible:false, child: Icon(Icons.arrow_downward)),
                                 value: carsDropdownValue,
                                 elevation: 16,
                                 iconSize: 0,
@@ -239,7 +240,7 @@ class _StepTwoState extends State<StepTwo> {
                                     child: Text(
                                       value['name'] as String,
                                       style: const TextStyle(
-                                          fontFamily: 'iranYekan',
+                                          fontFamily: 'IranYekan',
                                           fontSize: 15),
                                     ),
                                   );

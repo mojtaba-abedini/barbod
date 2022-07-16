@@ -37,7 +37,7 @@ class _StepThreeState extends State<StepThree> {
               width: MediaQuery.of(context).size.width < 600
                   ? MediaQuery.of(context).size.width
                   : 600,
-              height: 30,
+              height: 40,
               child: SvgPicture.asset(assetName),
             ),
           ),

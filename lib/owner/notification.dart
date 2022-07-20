@@ -30,7 +30,7 @@ class _OwnerNotificationState extends State<OwnerNotification> {
             children: [
               Expanded(
                 child: ListView.builder(
-                  padding: const EdgeInsets.all(40),
+                  padding: const EdgeInsets.all(20),
                   itemCount: notification.length,
                   itemBuilder: (BuildContext context, int index) {
                     return Container(
@@ -53,7 +53,10 @@ class _OwnerNotificationState extends State<OwnerNotification> {
                               ],
                               borderRadius: BorderRadius.circular(5),
                               color: thirdColor,
-                              border: Border.all(color: Colors.white70)),
+                              border: Border.all(
+                                width: 0.9,
+
+                                  color: Colors.grey)),
                           child: Text(
                             '${notification[index]['title']}',
                             textAlign: TextAlign.right,

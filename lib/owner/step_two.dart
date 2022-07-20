@@ -30,11 +30,11 @@ class _OwnerStepTwoState extends State<OwnerStepTwo> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 40),
+            padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
             child: SizedBox(
-              width: MediaQuery.of(context).size.width < 600
-                  ? MediaQuery.of(context).size.width
-                  : 600,
+              width: MediaQuery.of(context).size.width > 600
+                  ? 500
+                  : MediaQuery.of(context).size.width,
               height: 40,
               child: SvgPicture.asset(assetName),
             ),
@@ -42,7 +42,7 @@ class _OwnerStepTwoState extends State<OwnerStepTwo> {
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.only(right: 50, left: 50),
+                padding: const EdgeInsets.only(right: 20, left: 20),
                 child: Center(
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width < 600

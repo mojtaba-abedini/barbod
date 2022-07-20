@@ -7,6 +7,7 @@ import 'package:sample/owner/info.dart';
 import 'package:sample/owner/verify.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
+
 class OwnerCode extends StatefulWidget {
   const OwnerCode({Key? key}) : super(key: key);
 
@@ -15,6 +16,7 @@ class OwnerCode extends StatefulWidget {
 }
 
 class _OwnerCodeState extends State<OwnerCode> {
+
 
 
   late FocusNode myFocusTextField1;
@@ -77,13 +79,13 @@ class _OwnerCodeState extends State<OwnerCode> {
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'باربد',
-              style: TextStyle(
-                  fontSize: 42,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold),
-            ),
+            // const Text(
+            //   'تزبار',
+            //   style: TextStyle(
+            //       fontSize: 42,
+            //       color: Colors.white,
+            //       fontWeight: FontWeight.bold),
+            // ),
             const SizedBox(
               height: 30,
             ),

@@ -23,7 +23,7 @@ class _OwnerAboutState extends State<OwnerAbout> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [ SizedBox(
-          width: MediaQuery.of(context).size.width * 0.8,
+          width: MediaQuery.of(context).size.width * 0.9,
           child: Directionality(
             textDirection: TextDirection.rtl,
             child: Container(
@@ -44,7 +44,7 @@ class _OwnerAboutState extends State<OwnerAbout> {
                       color: thirdColor,
                       border: Border.all(color: Colors.grey)),
                   child: const Text(
-                    'شرکت باربد در جهت اصلاح ، تسهیل و تسریع فرآیند حمل بارف سامانه هوشمندی برای ارتباط مستقیم صاحبان بار و شرکت های باربری با راننده ها را فراهم کرده است. ',
+                    'شرکت تزبار در جهت اصلاح ، تسهیل و تسریع فرآیند حمل بارف سامانه هوشمندی برای ارتباط مستقیم صاحبان بار و شرکت های باربری با راننده ها را فراهم کرده است. ',
                     textAlign: TextAlign.justify,
                     style: TextStyle(fontSize: 16),
                   )),

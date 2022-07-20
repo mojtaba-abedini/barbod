@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:sample/owner/code.dart';
 import 'package:sample/globals.dart';
-import 'package:sample/owner/widgets/my_textfield_number.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class OwnerVerify extends StatefulWidget {
   const OwnerVerify({Key? key}) : super(key: key);
@@ -14,7 +14,7 @@ class OwnerVerify extends StatefulWidget {
 
 class _OwnerVerifyState extends State<OwnerVerify> {
   final mobileController = TextEditingController();
-
+  final String assetName = 'assets/logo.svg';
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,13 +34,8 @@ class _OwnerVerifyState extends State<OwnerVerify> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
-                'باربد',
-                style: TextStyle(
-                    fontSize: 42,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
-              ),
+              SizedBox(
+                  height: 35, child: SvgPicture.asset(assetName)),
               const SizedBox(
                 height: 50,
               ),

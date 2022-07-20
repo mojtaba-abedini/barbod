@@ -13,22 +13,35 @@ class OwnerDestinationLocation extends StatefulWidget {
 }
 
 class _OwnerDestinationLocationState extends State<OwnerDestinationLocation> {
-  String address='';
+  String address = '';
+  late List<String> myAddress;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: OpenStreetMapSearchAndPick(
-          center: LatLong(35.7018808, 51.3377326),
+          center: ownerDestinationLocation == 0 ? LatLong(35.7018808, 51.3377326) : LatLong(ownerOriginLat,ownerOriginLong),
           onPicked: (pickedData) {
             setState(() {
-              address=pickedData.address;
+              address = pickedData.address;
 
             });
 
-             ownerDestinationLocation = pickedData.address;
-             ownerDestinationLat = pickedData.latLong.latitude;
-             ownerDestinationLong = pickedData.latLong.longitude;
+            myAddress= address.split(',');
+            print("myAddress : ${myAddress[0]}");
+
+
+            ownerDestinationLocation=("${myAddress[0]}،${myAddress[1]}،${myAddress[2]}،${myAddress[3]}،${myAddress[4]}");
+
+
+
+
+
+            ownerDestinationLat = pickedData.latLong.latitude;
+            ownerDestinationLong = pickedData.latLong.longitude;
+
+
+
             // print(pickedData.latLong.latitude);
             // print(pickedData.latLong.longitude);
             // print(pickedData.address);

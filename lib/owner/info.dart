@@ -29,7 +29,7 @@ class _OwnerInfoState extends State<OwnerInfo> {
         child: SingleChildScrollView(
           child: Center(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 50),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: SizedBox(
                 width: MediaQuery.of(context).size.width < 600
                     ? MediaQuery.of(context).size.width

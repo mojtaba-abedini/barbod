@@ -25,7 +25,7 @@ class _OwnerProfileState extends State<OwnerProfile> {
           children: [
             Center(
               child: Container(
-                padding: const EdgeInsets.only(right: 50, left: 50),
+                padding: const EdgeInsets.only(right: 20, left: 20),
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width < 600
                       ? MediaQuery.of(context).size.width
@@ -86,7 +86,7 @@ class _OwnerProfileState extends State<OwnerProfile> {
             ),
             Center(
               child: Container(
-                padding: const EdgeInsets.only(right: 50, left: 50),
+                padding: const EdgeInsets.only(right: 20, left: 20),
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width < 600
                       ? MediaQuery.of(context).size.width
@@ -147,7 +147,7 @@ class _OwnerProfileState extends State<OwnerProfile> {
             ),
             Center(
               child: Container(
-                padding: const EdgeInsets.only(right: 50, left: 50),
+                padding: const EdgeInsets.only(right: 20, left: 20),
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width < 600
                       ? MediaQuery.of(context).size.width
@@ -208,7 +208,7 @@ class _OwnerProfileState extends State<OwnerProfile> {
             ),
             Center(
               child: Container(
-                padding: const EdgeInsets.only(right: 50, left: 50),
+                padding: const EdgeInsets.only(right: 20, left: 20),
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width < 600
                       ? MediaQuery.of(context).size.width
@@ -269,7 +269,7 @@ class _OwnerProfileState extends State<OwnerProfile> {
             ),
             Center(
               child: Container(
-                padding: const EdgeInsets.only(right: 50, left: 50),
+                padding: const EdgeInsets.only(right: 20, left: 20),
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width < 600
                       ? MediaQuery.of(context).size.width

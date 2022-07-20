@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:http/http.dart' as http;
+import 'package:geolocator/geolocator.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class OpenStreetMapSearchAndPick extends StatefulWidget {
   final LatLong center;
@@ -25,6 +27,9 @@ class _OpenStreetMapSearchAndPickState
   final TextEditingController _searchController = TextEditingController();
 
   late List<String> _searchControllerFiltered;
+
+  Position? _position;
+
 
   final FocusNode _focusNode = FocusNode();
   List<OSMdata> _options = <OSMdata>[];
@@ -47,11 +52,10 @@ class _OpenStreetMapSearchAndPickState
     var decodedResponse =
         jsonDecode(utf8.decode(response.bodyBytes)) as Map<dynamic, dynamic>;
 
-
-    _searchControllerFiltered =  (decodedResponse['display_name']).split(',');
+    _searchControllerFiltered = (decodedResponse['display_name']).split(',');
 
     _searchController.text =
-        ("${_searchControllerFiltered[0]}، ${_searchControllerFiltered[1]}، ${_searchControllerFiltered[2]}، ${_searchControllerFiltered[3]}، ${_searchControllerFiltered[4]}");
+        ("${_searchControllerFiltered[0]}،${_searchControllerFiltered[1]}،${_searchControllerFiltered[2]}،${_searchControllerFiltered[3]}،${_searchControllerFiltered[4]}");
     setState(() {});
   }
 
@@ -72,10 +76,10 @@ class _OpenStreetMapSearchAndPickState
     var decodedResponse =
         jsonDecode(utf8.decode(response.bodyBytes)) as Map<dynamic, dynamic>;
 
-    _searchControllerFiltered =  (decodedResponse['display_name']).split(',');
+    _searchControllerFiltered = (decodedResponse['display_name']).split(',');
 
     _searchController.text =
-        ("${_searchControllerFiltered[0]}، ${_searchControllerFiltered[1]}، ${_searchControllerFiltered[2]}، ${_searchControllerFiltered[3]}، ${_searchControllerFiltered[4]}");
+        ("${_searchControllerFiltered[0]}،${_searchControllerFiltered[1]}،${_searchControllerFiltered[2]}،${_searchControllerFiltered[3]}،${_searchControllerFiltered[4]}");
     setState(() {});
   }
 
@@ -93,16 +97,15 @@ class _OpenStreetMapSearchAndPickState
         String url =
             'https://nominatim.openstreetmap.org/reverse?format=json&country=Iran&countrycodes=IR&accept-language=fa&lat=${event.center.latitude}&lon=${event.center.longitude}&zoom=18&addressdetails=0';
 
-
         var response = await client.post(Uri.parse(url));
         var decodedResponse = jsonDecode(utf8.decode(response.bodyBytes))
             as Map<dynamic, dynamic>;
 
-
-        _searchControllerFiltered =  (decodedResponse['display_name']).split(',');
+        _searchControllerFiltered =
+            (decodedResponse['display_name']).split(',');
 
         _searchController.text =
-        ("${_searchControllerFiltered[0]}، ${_searchControllerFiltered[1]}، ${_searchControllerFiltered[2]}، ${_searchControllerFiltered[3]}، ${_searchControllerFiltered[4]}");
+            ("${_searchControllerFiltered[0]}،${_searchControllerFiltered[1]}،${_searchControllerFiltered[2]}،${_searchControllerFiltered[3]}،${_searchControllerFiltered[4]}");
 
         setState(() {});
       }
@@ -140,9 +143,17 @@ class _OpenStreetMapSearchAndPickState
             mapController: _mapController,
             layers: [
               TileLayerOptions(
+                tileProvider: NetworkTileProvider(),
+
+                // urlTemplate: 'http://mt{s}.google.com/vt/lyrs=m@221097413,parking,traffic,lyrs=m&x={x}&y={y}&z={z}',
+                // subdomains: ['0', '1', '2', '3'],
+
                 urlTemplate:
-                    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?bar",
+
+                maxZoom: 22.0,
                 subdomains: ['a', 'b', 'c'],
+                retinaMode: kIsWeb ? false : false,
                 // attributionBuilder: (_) {
                 //   return Text("© OpenStreetMap contributors");
                 // },
@@ -173,6 +184,24 @@ class _OpenStreetMapSearchAndPickState
               ),
             ),
           )),
+          Positioned(
+              bottom: 150,
+              right: 10,
+              child: FloatingActionButton(
+                backgroundColor: Theme.of(context).primaryColor,
+                onPressed: () {
+                  _getCurrentLocation();
+                  setState(() {
+
+
+                  });
+
+                  _mapController.move(LatLng(_position!.latitude,_position!.longitude),_mapController.zoom+3);
+
+
+                },
+                child: const Icon(Icons.location_searching,size: 17,),
+              )),
           Positioned(
               bottom: 85,
               right: 10,
@@ -265,7 +294,11 @@ class _OpenStreetMapSearchAndPickState
                           itemCount: _options.length > 5 ? 5 : _options.length,
                           itemBuilder: (context, index) {
                             return ListTile(
-                              title: Text((_options[index].displayname).split(",")[0],style: const TextStyle(fontWeight: FontWeight.bold),),
+                              title: Text(
+                                (_options[index].displayname).split(",")[0],
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold),
+                              ),
                               subtitle: Text(_options[index].displayname),
                               onTap: () {
                                 _mapController.move(
@@ -307,6 +340,8 @@ class _OpenStreetMapSearchAndPickState
     );
   }
 
+
+
   Future<PickedData> pickData() async {
     LatLong center = LatLong(
         _mapController.center.latitude, _mapController.center.longitude);
@@ -320,7 +355,45 @@ class _OpenStreetMapSearchAndPickState
     String displayName = decodedResponse['display_name'];
     return PickedData(center, displayName);
   }
+
+
+  void _getCurrentLocation() async {
+    Position position = await _determinePosition();
+    setState(() {
+      _position = position;
+    });
+  }Future<Position> _determinePosition() async {
+    LocationPermission permission;permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        // Permissions are denied, next time you could try
+        // requesting permissions again (this is also where
+        // Android's shouldShowRequestPermissionRationale
+        // returned true. According to Android guidelines
+        // your App should show an explanatory UI now.
+        return Future.error('Location permissions are denied');
+      }
+    }if (permission == LocationPermission.deniedForever) {
+      // Permissions are denied forever, handle appropriately.
+      return Future.error(
+          'Location permissions are permanently denied, we cannot request permissions.');
+    }// When we reach here, permissions are granted and we can
+    // continue accessing the position of the device.
+    return await Geolocator.getCurrentPosition();
+  }
+
+
+
+
+
 }
+
+
+
+
+
+
 
 class OSMdata {
   final String displayname;

@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:sample/globals.dart';
 import 'step_one.dart';
 
+
 import 'package:sample/open_street_map.dart';
 
 class OwnerOriginLocation extends StatefulWidget {
@@ -21,7 +22,7 @@ class _OwnerOriginLocationState extends State<OwnerOriginLocation> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: OpenStreetMapSearchAndPick(
-          center: LatLong(35.7018808, 51.3377326),
+          center: ownerOriginLat == 0 ? LatLong(35.7018808, 51.3377326) : LatLong(ownerOriginLat,ownerOriginLong),
           onPicked: (pickedData) {
             setState(() {
               address = pickedData.address;
@@ -32,7 +33,7 @@ class _OwnerOriginLocationState extends State<OwnerOriginLocation> {
             print("myAddress : ${myAddress[0]}");
 
 
-            ownerOriginLocation=("${myAddress[0]}، ${myAddress[1]}، ${myAddress[2]}، ${myAddress[3]}، ${myAddress[4]}");
+            ownerOriginLocation=("${myAddress[0]}،${myAddress[1]}،${myAddress[2]}،${myAddress[3]}،${myAddress[4]}");
 
 
 

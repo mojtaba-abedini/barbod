@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:lottie/lottie.dart';
 import 'package:sample/owner/orders.dart';
-import 'package:sample/owner/profile.dart';
+
 import 'package:get/get.dart';
-import 'package:sample/owner/step_one.dart';
+import 'package:sample/owner/owner_main.dart';
+
 
 class OwnerSuccess extends StatefulWidget {
   const OwnerSuccess({Key? key}) : super(key: key);
@@ -19,7 +20,7 @@ class _OwnerSuccessState extends State<OwnerSuccess> {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 80,
-        title: const Text('باربد'),
+        title: const Text('تزبار'),
         centerTitle: true,
         backgroundColor: Theme.of(context).primaryColor,
       ),
@@ -42,7 +43,7 @@ class _OwnerSuccessState extends State<OwnerSuccess> {
                     ),
                   ),
                   SizedBox(
-                    child: Lottie.asset('assets/new_order.json'),
+                    child: Lottie.asset('assets/success.json'),
                     // child: Lottie.asset('assets/cargo.json'),
                   ),
                   const SizedBox(
@@ -60,10 +61,11 @@ class _OwnerSuccessState extends State<OwnerSuccess> {
                           primary: Theme.of(context).primaryColor,
                         ),
                         onPressed: () {
-                          Get.to(const OwnerOrders());
+
+                          Get.to(const OwnerMain());
                         },
                         child: const Text(
-                          'مشاهده بار ثبت شده',
+                          'بازگشت به صفحه اصلی',
                           style: TextStyle(
                             color: Colors.white,
                             fontFamily: 'IranYekan',

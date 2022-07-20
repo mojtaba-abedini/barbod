@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:sample/globals.dart';
 
 import '../data.dart';
@@ -23,7 +24,6 @@ class _OwnerOrdersState extends State<OwnerOrders> {
           child: Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.blue,
-
               toolbarHeight: 11,
               bottom: const TabBar(
                 indicatorColor: Colors.white,
@@ -31,10 +31,10 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                 unselectedLabelColor: Colors.white,
                 labelStyle: TextStyle(
                     fontSize: 17.0,
-                   fontFamily: 'IranYekan',
+                    fontFamily: 'IranYekan',
                     fontWeight: FontWeight.bold),
                 unselectedLabelStyle:
-                    TextStyle(fontSize: 15.0,fontFamily: 'IranYekan'),
+                    TextStyle(fontSize: 15.0, fontFamily: 'IranYekan'),
                 tabs: [
                   Tab(
                     text: 'در انتظار',
@@ -50,19 +50,23 @@ class _OwnerOrdersState extends State<OwnerOrders> {
             ),
             body: Center(
               child: SizedBox(
-                width: MediaQuery.of(context).size.width < 800 ? MediaQuery.of(context).size.width  : 800,
+                width: MediaQuery.of(context).size.width < 800
+                    ? MediaQuery.of(context).size.width
+                    : 800,
                 child: TabBarView(
                   children: [
                     Expanded(
                       child: ListView.builder(
-                        padding: const EdgeInsets.all(20),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 5),
                         itemCount: ordersWaiting.length,
                         itemBuilder: (BuildContext context, int index) {
                           return Container(
-                            margin: const EdgeInsets.only(top: 10, bottom: 10),
+                            margin: const EdgeInsets.only(top: 5, bottom: 5),
                             color: thirdColor,
                             child: Container(
-                              padding: const EdgeInsets.only(right: 30,left: 30,top: 20,bottom: 20),
+                              padding: const EdgeInsets.only(
+                                  right: 10, left: 10, top: 0, bottom: 0),
                               decoration: BoxDecoration(
                                 boxShadow: [
                                   BoxShadow(
@@ -96,7 +100,8 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                             '${ordersWaiting[index]['date']}',
                                             textAlign: TextAlign.center,
                                             style: const TextStyle(
-                                               fontFamily: 'IranYekan',fontSize: 16),
+                                                fontFamily: 'IranYekan',
+                                                fontSize: 16),
                                           ),
                                         ),
                                       ),
@@ -115,7 +120,8 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                                 '${ordersWaiting[index]['description']}',
                                                 textAlign: TextAlign.center,
                                                 style: const TextStyle(
-                                                   fontFamily: 'IranYekan',fontSize: 16))),
+                                                    fontFamily: 'IranYekan',
+                                                    fontSize: 16))),
                                       ),
                                     ],
                                   ),
@@ -137,15 +143,17 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.center,
                                             children: [
-                                              const Icon(
-                                                Icons.location_on_rounded,
-                                                color: Colors.blue,
-                                                size: 16,
+                                              SizedBox(
+                                                width: 30,
+                                                height: 30,
+                                                child: Lottie.asset(
+                                                    'assets/location.json',),
                                               ),
                                               Text(
                                                 'از ${ordersWaiting[index]['from']}',
                                                 style: const TextStyle(
-                                                   fontFamily: 'IranYekan',fontSize: 16),
+                                                    fontFamily: 'IranYekan',
+                                                    fontSize: 16),
                                               ),
                                             ],
                                           ),
@@ -173,8 +181,8 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                                 Text(
                                                     'به ${ordersWaiting[index]['to']}',
                                                     style: const TextStyle(
-                                                        fontFamily:
-                                                            'IranYekan',fontSize: 16)),
+                                                        fontFamily: 'IranYekan',
+                                                        fontSize: 16)),
                                               ],
                                             )),
                                       ),
@@ -198,7 +206,8 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                             '${ordersWaiting[index]['price']}',
                                             textAlign: TextAlign.center,
                                             style: const TextStyle(
-                                               fontFamily: 'IranYekan',fontSize: 16),
+                                                fontFamily: 'IranYekan',
+                                                fontSize: 16),
                                           ),
                                         ),
                                       ),
@@ -217,7 +226,8 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                                 '${ordersWaiting[index]['priceType']}',
                                                 textAlign: TextAlign.center,
                                                 style: const TextStyle(
-                                                   fontFamily: 'IranYekan',fontSize: 16))),
+                                                    fontFamily: 'IranYekan',
+                                                    fontSize: 16))),
                                       ),
                                     ],
                                   ),
@@ -229,7 +239,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                     children: [
                                       Expanded(
                                         child: Container(
-                                          height:35,
+                                          height: 35,
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(5),
@@ -249,7 +259,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                               'ویرایش',
                                               style: TextStyle(
                                                 color: Colors.white,
-                                               fontFamily: 'IranYekan',
+                                                fontFamily: 'IranYekan',
                                                 fontSize: 15,
                                               ),
                                             ),
@@ -261,7 +271,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                       ),
                                       Expanded(
                                         child: Container(
-                                          height:35,
+                                          height: 35,
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(5),
@@ -280,7 +290,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                               'لغو سفارش',
                                               style: TextStyle(
                                                 color: Colors.white,
-                                               fontFamily: 'IranYekan',
+                                                fontFamily: 'IranYekan',
                                                 fontSize: 15,
                                               ),
                                             ),
@@ -301,14 +311,16 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                     ),
                     Expanded(
                       child: ListView.builder(
-                        padding: const EdgeInsets.all(20),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 5),
                         itemCount: ordersWaiting.length,
                         itemBuilder: (BuildContext context, int index) {
                           return Container(
-                            margin: const EdgeInsets.only(top: 10, bottom: 10),
+                            margin: const EdgeInsets.only(top: 5, bottom: 5),
                             color: thirdColor,
                             child: Container(
-                              padding: const EdgeInsets.only(right: 30,left: 30,top: 20,bottom: 20),
+                              padding: const EdgeInsets.only(
+                                  right: 10, left: 10, top: 0, bottom: 0),
                               decoration: BoxDecoration(
                                 boxShadow: [
                                   BoxShadow(
@@ -342,7 +354,8 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                             '${ordersWaiting[index]['date']}',
                                             textAlign: TextAlign.center,
                                             style: const TextStyle(
-                                               fontFamily: 'IranYekan',fontSize: 16),
+                                                fontFamily: 'IranYekan',
+                                                fontSize: 16),
                                           ),
                                         ),
                                       ),
@@ -361,7 +374,8 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                                 '${ordersWaiting[index]['description']}',
                                                 textAlign: TextAlign.center,
                                                 style: const TextStyle(
-                                                   fontFamily: 'IranYekan',fontSize: 16))),
+                                                    fontFamily: 'IranYekan',
+                                                    fontSize: 16))),
                                       ),
                                     ],
                                   ),
@@ -391,7 +405,8 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                               Text(
                                                 'از ${ordersWaiting[index]['from']}',
                                                 style: const TextStyle(
-                                                   fontFamily: 'IranYekan',fontSize: 16),
+                                                    fontFamily: 'IranYekan',
+                                                    fontSize: 16),
                                               ),
                                             ],
                                           ),
@@ -444,7 +459,8 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                             '${ordersWaiting[index]['price']}',
                                             textAlign: TextAlign.center,
                                             style: const TextStyle(
-                                               fontFamily: 'IranYekan',fontSize: 16),
+                                                fontFamily: 'IranYekan',
+                                                fontSize: 16),
                                           ),
                                         ),
                                       ),
@@ -463,7 +479,8 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                                 '${ordersWaiting[index]['priceType']}',
                                                 textAlign: TextAlign.center,
                                                 style: const TextStyle(
-                                                   fontFamily: 'IranYekan',fontSize: 16))),
+                                                    fontFamily: 'IranYekan',
+                                                    fontSize: 16))),
                                       ),
                                     ],
                                   ),
@@ -479,14 +496,16 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                     ),
                     Expanded(
                       child: ListView.builder(
-                        padding: const EdgeInsets.all(20),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 5),
                         itemCount: ordersWaiting.length,
                         itemBuilder: (BuildContext context, int index) {
                           return Container(
-                            margin: const EdgeInsets.only(top: 10, bottom: 10),
+                            margin: const EdgeInsets.only(top: 5, bottom: 5),
                             color: thirdColor,
                             child: Container(
-                              padding: const EdgeInsets.only(right: 30,left: 30,top: 20,bottom: 20),
+                              padding: const EdgeInsets.only(
+                                  right: 10, left: 10, top: 0, bottom: 0),
                               decoration: BoxDecoration(
                                 boxShadow: [
                                   BoxShadow(
@@ -509,7 +528,6 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Expanded(
-
                                         child: Container(
                                           padding: const EdgeInsets.all(8),
                                           decoration: BoxDecoration(
@@ -521,7 +539,8 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                             '${ordersWaiting[index]['date']}',
                                             textAlign: TextAlign.center,
                                             style: const TextStyle(
-                                               fontFamily: 'IranYekan',fontSize: 16),
+                                                fontFamily: 'IranYekan',
+                                                fontSize: 16),
                                           ),
                                         ),
                                       ),
@@ -540,7 +559,8 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                                 '${ordersWaiting[index]['description']}',
                                                 textAlign: TextAlign.center,
                                                 style: const TextStyle(
-                                                   fontFamily: 'IranYekan',fontSize: 16))),
+                                                    fontFamily: 'IranYekan',
+                                                    fontSize: 16))),
                                       ),
                                     ],
                                   ),
@@ -570,7 +590,8 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                               Text(
                                                 'از ${ordersWaiting[index]['from']}',
                                                 style: const TextStyle(
-                                                   fontFamily: 'IranYekan',fontSize: 16),
+                                                    fontFamily: 'IranYekan',
+                                                    fontSize: 16),
                                               ),
                                             ],
                                           ),
@@ -623,7 +644,8 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                             '${ordersWaiting[index]['price']}',
                                             textAlign: TextAlign.center,
                                             style: const TextStyle(
-                                               fontFamily: 'IranYekan',fontSize: 16),
+                                                fontFamily: 'IranYekan',
+                                                fontSize: 16),
                                           ),
                                         ),
                                       ),
@@ -642,7 +664,8 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                                 '${ordersWaiting[index]['priceType']}',
                                                 textAlign: TextAlign.center,
                                                 style: const TextStyle(
-                                                   fontFamily: 'IranYekan',fontSize: 16))),
+                                                    fontFamily: 'IranYekan',
+                                                    fontSize: 16))),
                                       ),
                                     ],
                                   ),
@@ -654,7 +677,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                     children: [
                                       Expanded(
                                         child: Container(
-                                          height:35,
+                                          height: 35,
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(5),
@@ -674,7 +697,7 @@ class _OwnerOrdersState extends State<OwnerOrders> {
                                               'بازگشت به چرخه',
                                               style: TextStyle(
                                                 color: Colors.white,
-                                               fontFamily: 'IranYekan',
+                                                fontFamily: 'IranYekan',
                                                 fontSize: 15,
                                               ),
                                             ),

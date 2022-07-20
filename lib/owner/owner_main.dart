@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:sample/globals.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:sample/owner/new_order.dart';
 import 'package:sample/owner/orders.dart';
 import 'package:sample/owner/profile.dart';
 
 class OwnerMain extends StatefulWidget {
-  const OwnerMain({Key? key}) : super(key: key);
+  const OwnerMain({Key? key,}) : super(key: key);
 
   @override
   State<OwnerMain> createState() => _OwnerMainState();
@@ -43,11 +43,11 @@ class _OwnerMainState extends State<OwnerMain> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: _currentPage!= _page3 ? 80 : 0,
+        toolbarHeight: _currentPage!= _page3 && kIsWeb ? 80 : 0,
         elevation: _currentPage== _page3 ? 0:5,
 
 
-        title: const Text('باربد'),
+        title: const Text('تزبار'),
         centerTitle: true,
         backgroundColor: Theme.of(context).primaryColor,
       ),

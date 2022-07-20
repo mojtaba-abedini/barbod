@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:sample/owner/verify.dart';
 import 'package:sample/globals.dart';
 import 'package:sample/owner/widgets/my_elevated_button_icon.dart';
-import 'package:sample/owner/map.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class OwnerEnter extends StatefulWidget {
   const OwnerEnter({Key? key}) : super(key: key);
@@ -14,8 +14,8 @@ class OwnerEnter extends StatefulWidget {
 }
 
 class _OwnerEnterState extends State<OwnerEnter> {
-
   bool value = false;
+  final String assetName = 'assets/logo.svg';
 
   @override
   Widget build(BuildContext context) {
@@ -35,12 +35,10 @@ class _OwnerEnterState extends State<OwnerEnter> {
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'باربد',
-              style: TextStyle(
-                  fontSize: 42,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold),
+            SizedBox(
+                height: 35, child: SvgPicture.asset(assetName)),
+            const SizedBox(
+              height: 10,
             ),
             const Text(
               'بهترین سامانه حمل و نقل ایران',
@@ -64,7 +62,7 @@ class _OwnerEnterState extends State<OwnerEnter> {
                             content: Directionality(
                                 textDirection: TextDirection.rtl,
                                 child: Text(
-                                  'برای ادامه باید قوانین باربد را بپذیرید!',
+                                  'برای ادامه باید قوانین تزبار را بپذیرید!',
                                   style: TextStyle(fontFamily: 'IranYekan'),
                                 )),
                           ));
@@ -81,7 +79,7 @@ class _OwnerEnterState extends State<OwnerEnter> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text(
-                  'قوانین و مقررات باربد را می پذیرم',
+                  'قوانین و مقررات تزبار را می پذیرم',
                   style: TextStyle(color: Colors.white, fontSize: 17),
                 ),
                 Checkbox(
